@@ -8,8 +8,36 @@
     <title><?= $title ?></title>
     <link rel="stylesheet" href="<?= base_url(); ?>./assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= base_url(); ?>./assets/css/print.css">
-</head>
+    <style>
+        .kades {
+            /* Styles for the signature section */
+            position: relative;
+            /* Ensure relative positioning for absolute child */
+            float: right;
+            /* Float to the right */
+            text-align: right;
+            /* Align text to right */
+            text-align: center;
+            margin-top: 40px;
 
+        }
+
+        /* .kades {} */
+
+        .kades .ttd-kades {
+            width: 300px;
+            /* Adjusted width */
+            height: auto;
+            /* Maintain aspect ratio */
+            margin-top: -25px;
+            /* Move logo upwards */
+        }
+
+        .kades .kades-name {
+            margin-top: -10px;
+        }
+    </style>
+</head>
 
 <body>
     <div class="container mt-3 page">
@@ -26,7 +54,7 @@
                                     <h5>PEMERINTAHAN KOTA BANJAR</h5>
                                     <h5>KECAMATAN LANGENSARI</h5>
                                     <h5>DESA KUJANGSARI</h5>
-                                    <small> Jl. Kujang No. 77 Desa Kujangsari, Kecamatan Langensari, Kota Banjar, 46324</small>
+                                    <small>Jl. Kujang No. 77 Desa Kujangsari, KEC. Langensari, Kota Banjar, 46324</small>
                                 </strong>
                             </center>
                         </td>
@@ -59,12 +87,12 @@
                         <tr>
                             <td>Nama</td>
                             <td>: </td>
-                            <td>MUJAHID, S.Ag</td>
+                            <td> MUJAHID, S.Ag </td>
                         </tr>
                         <tr>
                             <td>Jabatan</td>
                             <td>: </td>
-                            <td>Kepalah Desa Kujangsari</td>
+                            <td>Kepala Desa Kujangsari</td>
                         </tr>
                         <tr>
                             <td>Tempat/Tanggal Lahir</td>
@@ -118,11 +146,11 @@
                     Demikian surat keterangan ini dibuat dengan sebenar-benarnya untuk dapat dipergunakan sebagaimana mestinya.
                 </p>
                 <br>
-                <div class="kades float-end">
-                    <span class="mb-n2">Kujangsari, <?= date('d M Y') ?></span>
+                <div class="kades">
+                    <p>Kujangsari, <?= date('d M Y') ?></p>
                     <p>KEPALA DESA KUJANGSARI</p>
-                    <img src="<?= base_url('./assets/ttd/ttd.png') ?>" class="ttd-kades" width="80%" style="margin-top: -25px; z-index:9999;">
-                    <p class="fw-bold" style="margin-top: -30px; z-index:2;">MUJAHID, S.Ag</p>
+                    <img src="<?= base_url('./assets/ttd/ttd_kepala.png') ?>" class="ttd-kades">
+                    <p class="fw-bold">MUJAHID, S.Ag</p>
                 </div>
             </div>
         </div>
@@ -130,7 +158,6 @@
     <script>
         window.print();
     </script>
-    </div>
     <script src="<?= base_url(); ?>./assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 

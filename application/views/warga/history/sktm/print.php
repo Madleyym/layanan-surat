@@ -26,7 +26,7 @@
                                     <h5>PEMERINTAHAN KOTA BANJAR</h5>
                                     <h5>KECAMATAN LANGENSARI</h5>
                                     <h5>DESA KUJANGSARI</h5>
-                                    <small> Jl. Kujang No. 77 Desa Kujangsari, Kecamatan Langensari, Kota Banjar, 46324</small>
+                                    <small> Jl. Kujang No. 77 Desa Kujangsari, KEC. Langensari, Kota Banjar, 46324</small>
                                 </strong>
                             </center>
                         </td>
@@ -36,7 +36,7 @@
             <hr>
 
             <div class="identitas">
-                <p>Yang bertanda tangan dibawah ini Kepala Desa Kujangsari, Kecamatan Langensari, Kota Banjar:
+                <p>Yang bertanda tangan dibawah ini Kepala Desa Kujangsari, KEC. Langensari, Kota Banjar:
                 </p>
             </div>
             <div class="text-surat">
@@ -97,7 +97,7 @@
                 <div class="kades float-end">
                     <span class="mb-n2">Kujangsari, <?= date('d M Y') ?></span>
                     <p>KEPALA DESA KUJANGSARI</p>
-                    <img src="<?= base_url('./assets/ttd/ttd.png') ?>" class="ttd-kades" width="80%" style="margin-top: -25px; z-index:9999;">
+                    <img src="<?= base_url('./assets/ttd/ttd_kepala.jpg') ?>" class="ttd-kades" width="80%" style="margin-top: -25px; z-index:9999;">
                     <p class="fw-bold" style="margin-top: -30px; z-index:2;">MUJAHID, S.Ag</p>
                 </div>
             </div>

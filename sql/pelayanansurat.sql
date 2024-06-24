@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 21, 2022 at 05:51 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.12
+-- Generation Time: Jun 12, 2024 at 09:35 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 5.6.39
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -43,8 +44,8 @@ CREATE TABLE `administrator` (
 --
 
 INSERT INTO `administrator` (`id`, `nama`, `email`, `jekel`, `role_id`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'Administrator', 'admin@gmail.com', 'Laki-laki', 1, '$2y$10$zedAdfe5XgVeOX1MyqCK5uxwdlbZeI/jAh92IKfz/92IM7ROfTIuu', '2022-03-17 13:47:13', '0000-00-00 00:00:00'),
-(2, 'Kepala Desa', 'kades@gmail.com', 'Laki-laki', 2, '$2y$10$Q93HdyfptAa5TQPWEd/BJewVoUu0k4Rlo9ke2taQU73vXxSwsJQ7q', '2022-03-17 13:47:51', '2022-03-31 17:56:46');
+(1, 'Administrator', 'admin@gmail.com', 'Laki-laki', 1, '$2y$10$w2DuKVlBywrNVScPoQ.gf.eaCBJjSt/KR0cL3Iok.HUCDjAkaIl2.', '2022-03-17 13:47:13', '0000-00-00 00:00:00'),
+(2, 'Kepala Desa', 'kades@gmail.com', 'Laki-laki', 2, '$2y$10$UuU00rEEf0bvVEpHq40saeBNwnxlCRchdYUOyHSdRmM2RS26I6qH2', '2022-03-17 13:47:51', '2024-06-12 15:17:14');
 
 -- --------------------------------------------------------
 
@@ -68,14 +69,6 @@ CREATE TABLE `surat_domisili` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `surat_domisili`
---
-
-INSERT INTO `surat_domisili` (`id`, `id_warga`, `jenis_surat`, `nomor_surat`, `tanggal_surat`, `tanggal_kadaluarsa`, `keperluan`, `file_kk`, `file_ktp`, `status`, `komentar`, `notifikasi`, `created_at`, `updated_at`) VALUES
-(1, 1, 'SURAT KETERANGAN DOMISILI', '001/SKD/04/2022', '11/04/2022', '11/05/2022', 'Untuk pindah', 'skd-id-1-tgl20220411-1210-834.jpeg', 'skd-id-1-tgl20220411-1210-308.jpeg', 'Diterima', '', 0, '2022-04-11 06:12:10', '0000-00-00 00:00:00'),
-(2, 1, 'SURAT KETERANGAN DOMISILI', '002/SKD/06/2022', '21/06/2022', '21/07/2022', 'qweqwewq', 'skd-id-1-tgl20220621-4507-594.jpg', 'skd-id-1-tgl20220621-4507-486.jpg', 'Menunggu Verifikasi', '', 0, '2022-06-21 17:45:07', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -105,19 +98,11 @@ CREATE TABLE `surat_kelahiran` (
   `file_kk` varchar(225) NOT NULL,
   `file_ktp` varchar(225) NOT NULL,
   `status` varchar(20) NOT NULL,
-  `komentar` text DEFAULT NULL,
+  `komentar` text,
   `notifikasi` int(2) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `surat_kelahiran`
---
-
-INSERT INTO `surat_kelahiran` (`id`, `id_warga`, `jenis_surat`, `nomor_surat`, `tanggal_surat`, `tanggal_kadaluarsa`, `ayah`, `ibu`, `no_kk`, `nama_bayi`, `jekel_b`, `tempat_lahir_b`, `tanggal_lahir_b`, `anak_ke`, `agama_b`, `kewarganegaraan_b`, `alamat_b`, `keperluan`, `file_kk`, `file_ktp`, `status`, `komentar`, `notifikasi`, `created_at`, `updated_at`) VALUES
-(1, 1, 'SURAT PENGANTAR AKTE KELAHIRAN', '001/SKPAK/04/2022', '11/04/2022', '11/05/2022', 'Sujono', 'Sutiem', 2147483647, 'Ahmad Rossyi Al Awwalu', 'Laki - Lak', 'Jepara', '2022-04-11', 2, 'Islam', 'WNI', 'Desa Brantaksekarjati', 'Untuk Membuat Akte Kelahiran Baru', 'spak-id-1-tgl20220411-2214-825.jpeg', 'spak-id-1-tgl20220411-2214-909.jpeg', 'Diterima', NULL, 0, '2022-04-11 06:22:14', '0000-00-00 00:00:00'),
-(2, 1, 'SURAT PENGANTAR AKTE KELAHIRAN', '002/SKPAK/06/2022', '21/06/2022', '21/07/2022', 'qwewqe', 'qwewq', 2147483647, '123123123', 'Laki - Lak', 'qweqwe', '2022-06-10', 1, 'Kristen', 'WNI', 'qeqweqwe', '2321xasdasdsadsad', 'spak-id-1-tgl20220621-4233-920.jpg', 'spak-id-1-tgl20220621-4233-85.jpg', 'Menunggu Verifikasi', NULL, NULL, '2022-06-21 17:42:33', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -153,19 +138,11 @@ CREATE TABLE `surat_kematian` (
   `tempat_pemakaman` varchar(100) NOT NULL,
   `keperluan` text NOT NULL,
   `status` varchar(20) NOT NULL,
-  `komentar` text DEFAULT NULL,
+  `komentar` text,
   `notifikasi` int(2) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `surat_kematian`
---
-
-INSERT INTO `surat_kematian` (`id`, `id_warga`, `jenis_surat`, `nomor_surat`, `tanggal_surat`, `tanggal_kadaluarsa`, `hubungan`, `nama_alm`, `bin`, `nik_a`, `jekel_a`, `tempat_lahir_a`, `tanggal_lahir_a`, `kewarganegaraan_a`, `status_perkawinan_a`, `pekerjaan_a`, `alamat_a`, `file_kk`, `file_ktp`, `hari`, `tanggal_meninggal`, `jam_meninggal`, `tempat_meninggal`, `sebab_meninggal`, `tempat_pemakaman`, `keperluan`, `status`, `komentar`, `notifikasi`, `created_at`, `updated_at`) VALUES
-(1, 1, 'SURAT KETERANGAN KEMATIAN', '001/SKK/04/2022', '11/04/2022', '11/05/2022', 'Keponakan', 'mujnah', 'somat', '030302939392923', 'Laki - Laki', 'Jepara', '1998-02-11', 'WNI', 'Janda', 'Mantan TK', 'Jepara Desa Brantaksekarjati', 'skk-id-1-tgl20220411-2410-42.jpeg', 'skk-id-1-tgl20220411-2410-290.jpeg', 'Senin', '2022-04-11', '09:00', 'RSUD Kartini Jepara', 'Sakit Keras', 'TPU Desa Setempat', 'Untuk Keterangan', 'Diterima', NULL, 0, '2022-04-11 06:24:10', '0000-00-00 00:00:00'),
-(2, 1, 'SURAT KETERANGAN KEMATIAN', '002/SKK/06/2022', '21/06/2022', '21/07/2022', 'sadsadsad', 'asdsad', 'asdsad', '1111111111111111', 'Laki - Laki', 'asdas', '2022-06-15', 'WNI', 'Kawin', 'asdasds', 'asdasdasd', 'skk-id-1-tgl20220621-4958-669.jpeg', 'skk-id-1-tgl20220621-4958-85.jpg', 'Selasa', '2022-06-14', '22:51', 'dasdasd', 'dasasd', 'TPU Desa', 'sadasdsadasd', 'Menunggu Verifikasi', NULL, 0, '2022-06-21 17:49:58', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -184,7 +161,7 @@ CREATE TABLE `surat_keterangan_pengantar` (
   `file_kk` varchar(100) NOT NULL,
   `file_ktp` varchar(100) NOT NULL,
   `status` varchar(20) NOT NULL,
-  `komentar` text DEFAULT NULL,
+  `komentar` text,
   `notifikasi` int(2) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
@@ -195,8 +172,8 @@ CREATE TABLE `surat_keterangan_pengantar` (
 --
 
 INSERT INTO `surat_keterangan_pengantar` (`id`, `id_warga`, `jenis_surat`, `nomor_surat`, `tanggal_surat`, `tanggal_kadaluarsa`, `keperluan`, `file_kk`, `file_ktp`, `status`, `komentar`, `notifikasi`, `created_at`, `updated_at`) VALUES
-(1, 1, 'SURAT KETERANGAN PENGANTAR', '002/SKP/04/2022', '11/04/2022', '11/05/2022', 'Untuk Pengantar Kerja Ke Malaysia', 'skp-id-1-tgl20220411-2037-350.jpeg', 'skp-id-1-tgl20220411-2037-562.jpeg', 'Diterima', NULL, 0, '2022-04-11 06:20:37', '0000-00-00 00:00:00'),
-(2, 1, 'SURAT KETERANGAN PENGANTAR', '003/SKP/06/2022', '21/06/2022', '21/07/2022', 'dasdsds', 'skp-id-1-tgl20220621-4744-427.jpg', 'skp-id-1-tgl20220621-4744-892.jpg', 'Menunggu Verifikasi', NULL, 0, '2022-06-21 17:47:44', '0000-00-00 00:00:00');
+(3, 3, 'SURAT KETERANGAN PENGANTAR', '001/SKP/06/2024', '12/06/2024', '12/07/2024', 'SEKOLAH', 'skp-id-3-tgl20240612-3932-488.jpg', 'skp-id-3-tgl20240612-3932-698.png', 'Ditolak', NULL, 0, '2024-06-12 10:39:32', '0000-00-00 00:00:00'),
+(4, 3, 'SURAT KETERANGAN PENGANTAR', '001/SKP/06/2024', '12/06/2024', '12/07/2024', 'pepe', 'skp-id-3-tgl20240612-4411-794.png', 'skp-id-3-tgl20240612-4411-896.jpg', 'Diterima', NULL, 1, '2024-06-12 10:44:11', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -222,18 +199,6 @@ CREATE TABLE `surat_tidak_mampu` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `surat_tidak_mampu`
---
-
-INSERT INTO `surat_tidak_mampu` (`id`, `id_warga`, `jenis_surat`, `nomor_surat`, `tanggal_surat`, `tanggal_kadaluarsa`, `keperluan`, `tanggungan`, `file_kk`, `file_ktp`, `file_rumah`, `status`, `notifikasi`, `komentar`, `created_at`, `updated_at`) VALUES
-(1, 1, 'SURAT KETERANGAN TIDAK MAMPU', '001/SKTM/04/2022', '11/04/2022', '11/05/2022', 'Untuk kuliah', '', 'sktm-id-1-tgl20220411-0000-775.jpeg', 'sktm-id-1-tgl20220411-0000-393.jpeg', '', 'Diterima', 0, '', '2022-04-11 06:00:01', '0000-00-00 00:00:00'),
-(2, 1, 'SURAT KETERANGAN TIDAK MAMPU', '002/SKTM/04/2022', '11/04/2022', '11/05/2022', 'Buat mendaftar KIP', '', 'sktm-id-1-tgl20220411-0626-725.jpeg', 'sktm-id-1-tgl20220411-0626-248.png', '', 'Diterima', 0, '', '2022-04-11 06:06:26', '0000-00-00 00:00:00'),
-(3, 1, 'SURAT KETERANGAN TIDAK MAMPU', '003/SKTM/06/2022', '18/06/2022', '18/07/2022', 'Lorem ipsum dolor sit amet', '10', 'sktm-id-1-tgl20220618-5951-45.jpg', 'sktm-id-1-tgl20220618-5951-477.jpg', 'sktm-id-1-tgl20220618-5951-190.jpg', 'Terverifikasi', 0, '', '2022-06-18 23:59:51', '0000-00-00 00:00:00'),
-(4, 1, 'SURAT KETERANGAN TIDAK MAMPU', '004/SKTM/06/2022', '19/06/2022', '19/07/2022', 'adasdasdasd', '231', 'sktm-id-1-tgl20220619-0908-5.jpeg', 'sktm-id-1-tgl20220619-0908-465.jpg', 'sktm-id-1-tgl20220619-0908-663.jpg', 'Terverifikasi', 0, '', '2022-06-19 00:09:08', '0000-00-00 00:00:00'),
-(9, 2, 'SURAT KETERANGAN TIDAK MAMPU', '005/SKTM/06/2022', '19/06/2022', '19/07/2022', 'adsdass', '1212', 'sktm-id-2-tgl20220619-3444-457.jpg', 'sktm-id-2-tgl20220619-3444-104.jpg', 'sktm-id-2-tgl20220619-3444-146.jpeg', 'Menunggu Verifikasi', 0, '', '2022-06-19 00:34:44', '0000-00-00 00:00:00'),
-(10, 1, 'SURAT KETERANGAN TIDAK MAMPU', '010/SKTM/06/2022', '19/06/2022', '19/07/2022', 'adasdas', '132', 'sktm-id-1-tgl20220619-3529-185.jpg', 'sktm-id-1-tgl20220619-3529-909.jpg', 'sktm-id-1-tgl20220619-3529-739.jpg', 'Menunggu Verifikasi', 0, '', '2022-06-19 00:35:29', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -261,14 +226,6 @@ CREATE TABLE `surat_usaha` (
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='f';
 
---
--- Dumping data for table `surat_usaha`
---
-
-INSERT INTO `surat_usaha` (`id`, `id_warga`, `jenis_surat`, `nomor_surat`, `tanggal_surat`, `tanggal_kadaluarsa`, `nama_usaha`, `tgl_mulai`, `alamat_usaha`, `keperluan`, `file_kk`, `file_ktp`, `status`, `komentar`, `notifikasi`, `created_at`, `updated_at`) VALUES
-(1, 1, 'SURAT KETERANGAN USAHA', '001/SKU/04/2022', '11/04/2022', '11/05/2022', 'Alfatechnology', '2022-04-12', 'Kelet Keling Jepara', 'Untuk Rekomendasi naik status ke PT', 'sku-id-1-tgl20220411-1938-534.jpeg', 'sku-id-1-tgl20220411-1938-718.jpeg', 'Diterima', '', '0', '2022-04-11 06:19:38', '0000-00-00 00:00:00'),
-(2, 1, 'SURAT KETERANGAN USAHA', '002/SKU/06/2022', '21/06/2022', '21/07/2022', 'Lorem', '2022-06-21', 'Lorem', 'lorem', 'sku-id-1-tgl20220621-3308-496.jpg', 'sku-id-1-tgl20220621-3308-303.jpeg', 'Menunggu Verifikasi', '', NULL, '2022-06-21 17:33:08', '0000-00-00 00:00:00');
-
 -- --------------------------------------------------------
 
 --
@@ -290,8 +247,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_users`, `id_warga`, `email`, `password`, `role_id`, `created_at`, `updated_at`) VALUES
-(1, 1, 'warga@gmail.com', '$2y$10$jhMdmG3aC8PFcYcY00ikPOzUNowUHPYoZ/yQi0dird.Oe5Pz6KklK', 3, '2022-04-11 05:55:19', '0000-00-00 00:00:00'),
-(2, 2, 'warga2@gmail.com', '$2y$10$cHPfa5PJhazV7JZWLDandO25LbX9TIxBpGC40JblWW.CsV2UCw1Bu', 3, '2022-06-19 00:33:35', '0000-00-00 00:00:00');
+(3, 3, 'tryandaasu@gmail.com', '$2y$10$9zwc6a003L65qLDKRHbxAePta3xJN/iSZPASmSGoRbtA7Wvs7.ffi', 3, '2024-06-12 09:37:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -323,8 +279,7 @@ CREATE TABLE `warga` (
 --
 
 INSERT INTO `warga` (`id_warga`, `nik`, `nama`, `jekel`, `agama`, `golongan_darah`, `pendidikan`, `status_pernikahan`, `pekerjaan`, `tempat_lahir`, `tgl_lahir`, `rt`, `rw`, `alamat`, `created_at`, `updated_at`) VALUES
-(1, '1234567891234567', 'Warga Desa Brantaksekarjati', 'Laki-laki', 'Islam', 'Tida', 'Tamat SMA/Sederajat', 'Belum Menikah', 'Freelancer', 'Jepara', '2000-02-02', 1, 3, 'Desa Brantaksekarjati, Rt.001/Rw.002 Kecamatan Welahan Kabupaten Jepara', '2022-04-02 00:03:14', '0000-00-00 00:00:00'),
-(2, '1111111111111111', 'Muhammad', 'Laki-laki', 'Islam', 'A', 'Tamat SD/Sederajat', 'Menikah', 'Lorme', 'Lorem', '2022-12-31', 1, 2, 'Lorem', '2022-06-19 05:32:50', '0000-00-00 00:00:00');
+(3, '3279043105020001', 'Tryanda Anggita Suwito', 'Laki-laki', 'Islam', 'B', 'Tamat SMA/Sederajat', 'Belum Menikah', 'Mahasiswa', 'Ciamis', '2002-05-31', 2, 1, 'Dusun Citangkolo RT02 RW01 Desa Kujangsari, KEC. Langensari Kota Banjar, Jawabarat', '2024-06-12 14:36:39', '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -399,7 +354,7 @@ ALTER TABLE `warga`
 -- AUTO_INCREMENT for table `administrator`
 --
 ALTER TABLE `administrator`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `surat_domisili`
@@ -423,7 +378,7 @@ ALTER TABLE `surat_kematian`
 -- AUTO_INCREMENT for table `surat_keterangan_pengantar`
 --
 ALTER TABLE `surat_keterangan_pengantar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `surat_tidak_mampu`
@@ -441,13 +396,13 @@ ALTER TABLE `surat_usaha`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `warga`
 --
 ALTER TABLE `warga`
-  MODIFY `id_warga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_warga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables

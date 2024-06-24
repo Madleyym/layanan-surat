@@ -125,6 +125,13 @@ if ($this->session->userdata('role_id') == 1 || $this->session->userdata('role_i
                         </ul>
                     </li>
 
+                 
+                    <li class="sidebar-item  <?= $this->uri->segment(1) == 'list-surat' || $this->uri->segment(1) == 'tambah-data-warga' || $this->uri->segment(1) == 'edit-warga' || $this->uri->segment(1) == 'detail-warga' ? 'active ' : '' ?>">
+                        <a href="<?= base_url('list-surat') ?>" class='sidebar-link'>
+                            <i class="bi bi-people-fill"></i>
+                            <span>Buat Surat Keterangan</span>
+                        </a>
+                    </li>
                     <li class="sidebar-item  <?= $this->uri->segment(1) == 'data-warga' || $this->uri->segment(1) == 'tambah-data-warga' || $this->uri->segment(1) == 'edit-warga' || $this->uri->segment(1) == 'detail-warga' ? 'active ' : '' ?>">
                         <a href="<?= base_url('data-warga') ?>" class='sidebar-link'>
                             <i class="bi bi-people-fill"></i>

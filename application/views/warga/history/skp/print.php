@@ -26,7 +26,7 @@
                                     <h5>PEMERINTAHAN KOTA BANJAR</h5>
                                     <h5>KECAMATAN LANGENSARI</h5>
                                     <h5>DESA KUJANGSARI</h5>
-                                    <small> Jl. Kujang No. 77 Desa Kujangsari, Kecamatan Langensari, Kota Banjar, 46324</small>
+                                    <small> Jl. Kujang No. 77 Desa Kujangsari, KEC. Langensari, Kota Banjar, 46324</small>
                                 </strong>
                             </center>
                         </td>
@@ -74,7 +74,7 @@
                         <tr>
                             <td>Tempat Tinggal</td>
                             <td>: </td>
-                            <td>Desa Kujangsari Rt: <?= $d->rt ?>/Rw: <?= $d->rw ?>, Kecamatan Langensari, Kota Banjar, Jawa Barat.</td>
+                            <td>Desa Kujangsari Rt: <?= $d->rt ?>/Rw: <?= $d->rw ?>, KEC. Langensari, Kota Banjar, Jawa Barat.</td>
                         </tr>
                         <tr>
                             <td>Surat Bukti Diri</td>
@@ -99,7 +99,7 @@
                 <div class="kades float-end">
                     <span class="mb-n2">Kujangsari, <?= date('d M Y') ?></span>
                     <p>KEPALA DESA KUJANGSARI</p>
-                    <img src="<?= base_url('./assets/ttd/ttd.png') ?>" class="ttd-kades" width="80%" style="margin-top: -25px; z-index:9999;">
+                    <img src="<?= base_url('./assets/ttd/ttd_kepala.png') ?>" class="ttd-kades" width="80%" style="margin-top: -25px; z-index:9999;">
                     <p class="fw-bold" style="margin-top: -30px; z-index:2;">MUJAHID, S.Ag</p>
                 </div>
             </div>
